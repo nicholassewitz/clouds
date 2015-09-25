@@ -2,9 +2,9 @@ Pushes information from Amazon Redshift to Salesforce using Windows Dataloader C
 
 Setup Instruction Download Data Loader login to salesforce go to setup search for data loader Under Data Management->Data Loader Download the windows version
 
-Install Data Loader run windows setup for the dataloader for convenience, install it to c:\dataloader
+<!--Install Data Loader run windows setup for the dataloader for convenience, install it to c:\dataloader-->
 
-PostgreSql Jar file download: postgresql.jdbc4.jar from postgresql website copy jar file to c:\dataloader\java\bin
+<!--PostgreSql Jar file download: postgresql.jdbc4.jar from postgresql website copy jar file to c:\dataloader\java\bin-->
 
 Artsy Setup: Unzip artsy.zip under c:\dataloader setup permission to full permission for the Put_Salesforce_Account_Name_Here folder for everyone
 
