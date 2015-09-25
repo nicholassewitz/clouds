@@ -1,0 +1,16 @@
+# Fair Mapping values for query from redshift and upsert to Salesforce (right)
+id=Partner_Location_Ext_Id__c
+partner_id=Related_Account__r\:Partner_Ext_Id__c
+name=Name
+address=Street_Address__c
+address_2=Suite_Floor_Level__c
+city=City__c
+state=State__c
+postal_code=Postal_Code__c
+country=Country__c
+timezone=Time_Zone__c
+phone=Phone__c
+email=Email__c
+fax=Fax_Number__c
+longitude=Geolocation__Longitude__s
+latitude=Geolocation__Latitude__s

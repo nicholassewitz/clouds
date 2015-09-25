@@ -1,0 +1,96 @@
+------------ Request start   ----------
+<?xml version="1.0" encoding="UTF-8"?><env:Envelope
+   xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <env:Header>
+  <CallOptions xmlns="urn:partner.soap.sforce.com">
+   <client>DataLoaderPartnerBatch/34.0</client>
+   <defaultNamespace xsi:nil="true" />
+  </CallOptions>
+ </env:Header>
+ <env:Body>
+  <m:login xmlns:m="urn:partner.soap.sforce.com" xmlns:sobj="urn:sobject.partner.soap.sforce.com">
+   <m:username>annie@artsymail.com.artdev</m:username>
+   <m:password>8040444k5329EV245</m:password>
+  </m:login>
+ </env:Body>
+</env:Envelope>
+------------ Request end   ----------
+------------ Request start   ----------
+<?xml version="1.0" encoding="UTF-8"?><env:Envelope
+   xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <env:Header>
+  <SessionHeader xmlns="urn:partner.soap.sforce.com">
+   <sessionId>00DM0000000FQcL!ARkAQFidZj5gtNIxCKF1MinIvJVr0gAMtCIMFv8yI4wVa3YcRwi1UsHXns5CUpEdFgbDkWefjdCbNdxHH8vJ2EtTcvRBlcVC</sessionId>
+  </SessionHeader>
+  <CallOptions xmlns="urn:partner.soap.sforce.com">
+   <client>DataLoaderPartnerBatch/34.0</client>
+   <defaultNamespace xsi:nil="true" />
+  </CallOptions>
+ </env:Header>
+ <env:Body>
+  <m:describeSObject xmlns:m="urn:partner.soap.sforce.com" xmlns:sobj="urn:sobject.partner.soap.sforce.com">
+   <m:sObjectType>Locations__c</m:sObjectType>
+  </m:describeSObject>
+ </env:Body>
+</env:Envelope>
+------------ Request end   ----------
+------------ Request start   ----------
+<?xml version="1.0" encoding="UTF-8"?><env:Envelope
+   xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <env:Header>
+  <SessionHeader xmlns="urn:partner.soap.sforce.com">
+   <sessionId>00DM0000000FQcL!ARkAQFidZj5gtNIxCKF1MinIvJVr0gAMtCIMFv8yI4wVa3YcRwi1UsHXns5CUpEdFgbDkWefjdCbNdxHH8vJ2EtTcvRBlcVC</sessionId>
+  </SessionHeader>
+  <CallOptions xmlns="urn:partner.soap.sforce.com">
+   <client>DataLoaderPartnerBatch/34.0</client>
+   <defaultNamespace xsi:nil="true" />
+  </CallOptions>
+ </env:Header>
+ <env:Body>
+  <m:describeGlobal xmlns:m="urn:partner.soap.sforce.com" xmlns:sobj="urn:sobject.partner.soap.sforce.com" />
+ </env:Body>
+</env:Envelope>
+------------ Request end   ----------
+------------ Request start   ----------
+<?xml version="1.0" encoding="UTF-8"?><env:Envelope
+   xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <env:Header>
+  <SessionHeader xmlns="urn:partner.soap.sforce.com">
+   <sessionId>00DM0000000FQcL!ARkAQFidZj5gtNIxCKF1MinIvJVr0gAMtCIMFv8yI4wVa3YcRwi1UsHXns5CUpEdFgbDkWefjdCbNdxHH8vJ2EtTcvRBlcVC</sessionId>
+  </SessionHeader>
+  <CallOptions xmlns="urn:partner.soap.sforce.com">
+   <client>DataLoaderPartnerBatch/34.0</client>
+   <defaultNamespace xsi:nil="true" />
+  </CallOptions>
+ </env:Header>
+ <env:Body>
+  <m:describeSObject xmlns:m="urn:partner.soap.sforce.com" xmlns:sobj="urn:sobject.partner.soap.sforce.com">
+   <m:sObjectType>User</m:sObjectType>
+  </m:describeSObject>
+ </env:Body>
+</env:Envelope>
+------------ Request end   ----------
+------------ Request start   ----------
+<?xml version="1.0" encoding="UTF-8"?><env:Envelope
+   xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <env:Header>
+  <SessionHeader xmlns="urn:partner.soap.sforce.com">
+   <sessionId>00DM0000000FQcL!ARkAQFidZj5gtNIxCKF1MinIvJVr0gAMtCIMFv8yI4wVa3YcRwi1UsHXns5CUpEdFgbDkWefjdCbNdxHH8vJ2EtTcvRBlcVC</sessionId>
+  </SessionHeader>
+  <CallOptions xmlns="urn:partner.soap.sforce.com">
+   <client>DataLoaderPartnerBatch/34.0</client>
+   <defaultNamespace xsi:nil="true" />
+  </CallOptions>
+ </env:Header>
+ <env:Body>
+  <m:describeSObject xmlns:m="urn:partner.soap.sforce.com" xmlns:sobj="urn:sobject.partner.soap.sforce.com">
+   <m:sObjectType>Account</m:sObjectType>
+  </m:describeSObject>
+ </env:Body>
+</env:Envelope>
+------------ Request end   ----------

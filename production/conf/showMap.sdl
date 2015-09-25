@@ -1,0 +1,16 @@
+# Shows Mapping values for query from redshift and upsert to Salesforce (right)
+id=Partner_Show_Ext_Id__c
+slug=Partner_Slug_c__c
+name=Name
+description=Description__c
+featured=Featured__c
+eligible_artworks_count=Eligible_Artworks_Count__c
+artworks_count=Artworks_Count__c
+images_count=Image_Count__c
+displayable=Displayable__c
+partner_id=Account__r\:Partner_Ext_Id__c
+fair_id=Fair__r\:Fair_Ext_Id__c
+lat=Lat__c
+lon=Lon__c
+start_at=Start_At__c
+end_at=End_At__c

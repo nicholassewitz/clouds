@@ -1,0 +1,222 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="accountMasterProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>AccountMaster job gets the partner record updates from redshift and uploads them to salesforce using 'upsert'.</description>
+        <property name="name" value="accountMasterProcess"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="false"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\accountMasterSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://login.salesforce.com"/>
+                <entry key="sfdc.username" value="Put_Salesforce_Username_Here"/>
+                <!-- password below is generated using encrypt.bat in ../bin to encrypt: encrypt -e sfpwd  -->
+                <entry key="sfdc.password" value="SEE_README_NOTES_ON_ENCRYPTING_PW"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.useBulkApi " value="true"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.externalIdField" value="Partner_Ext_Id__c"/>
+                <entry key="sfdc.entity" value="Account"/>
+                <entry key="process.operation" value="upsert"/>
+                <entry key="process.mappingFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\conf\accountMasterMap.sdl"/>
+                <entry key="dataAccess.name" value="queryPartner"/>
+                <entry key="dataAccess.type" value="databaseRead"/>
+                <entry key="process.initialLastRunDate" value="2015-09-01T00:00:00.000-0800"/>
+                <entry key="process.lastRunOutputDirectory " value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.statusOutputDirectory" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.outputSuccess" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\accountsuccess.csv"/>
+                <entry key="process.outputError" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\accounterror.csv"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="accountUpdateProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>AccountUpdate job gets the partner record updates from redshift and uploads them to salesforce using 'update'.</description>
+        <property name="name" value="accountUpdateProcess"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="false"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\accountMasterSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://login.salesforce.com"/>
+                <entry key="sfdc.username" value="Put_Salesforce_Username_Here"/>
+                <!-- password below is generated using encrypt.bat in ../bin to encrypt: encrypt -e sfpwd  -->
+                <entry key="sfdc.password" value="SEE_README_NOTES_ON_ENCRYPTING_PW"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.useBulkApi " value="true"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.externalIdField" value="Partner_Ext_Id__c"/>
+                <entry key="sfdc.entity" value="Account"/>
+                <entry key="process.operation" value="update"/>
+                <entry key="process.mappingFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\conf\accountUpdateMap.sdl"/>
+                <entry key="dataAccess.name" value="queryPartner"/>
+                <entry key="dataAccess.type" value="databaseRead"/>
+                <entry key="process.initialLastRunDate" value="2015-09-01T00:00:00.000-0800"/>
+                <entry key="process.lastRunOutputDirectory " value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.statusOutputDirectory" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.outputSuccess" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\accountupdatesuccess.csv"/>
+                <entry key="process.outputError" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\accountupdateerror.csv"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="locationProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>Location job gets the partner locations record updates from redshift and uploads them to salesforce using 'upsert'.</description>
+        <property name="name" value="locationProcess"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="false"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\locationSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://login.salesforce.com"/>
+                <entry key="sfdc.username" value="Put_Salesforce_Username_Here"/>
+                <!-- password below is generated using encrypt.bat in ../bin to encrypt: encrypt -e sfpwd  -->
+                <entry key="sfdc.password" value="SEE_README_NOTES_ON_ENCRYPTING_PW"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.useBulkApi " value="true"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.externalIdField" value="Partner_Location_Ext_Id__c"/>
+                <entry key="sfdc.entity" value="Locations__c"/>
+                <entry key="process.operation" value="upsert"/>
+                <entry key="process.mappingFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\conf\locationMap.sdl"/>
+                <entry key="dataAccess.name" value="queryPartnerLocation"/>
+                <entry key="dataAccess.type" value="databaseRead"/>
+                <entry key="process.initialLastRunDate" value="2015-09-01T00:00:00.000-0800"/>
+                <entry key="process.lastRunOutputDirectory " value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.statusOutputDirectory" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.outputSuccess" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\locationsuccess.csv"/>
+                <entry key="process.outputError" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\locationerror.csv"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="contactProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>Contact job gets the partner_contacts record updates from redshift and uploads them to salesforce using 'upsert'.</description>
+        <property name="name" value="contactProcess"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="false"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\contactSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://login.salesforce.com"/>
+                <entry key="sfdc.username" value="Put_Salesforce_Username_Here"/>
+                <!-- password below is generated using encrypt.bat in ../bin to encrypt: encrypt -e sfpwd  -->
+                <entry key="sfdc.password" value="SEE_README_NOTES_ON_ENCRYPTING_PW"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.useBulkApi " value="true"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.externalIdField" value="Partner_Contact_Ext_Id__c"/>
+                <entry key="sfdc.entity" value="Contact"/>
+                <entry key="process.operation" value="upsert"/>
+                <entry key="process.mappingFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\conf\contactMap.sdl"/>
+                <entry key="dataAccess.name" value="queryPartnerContact"/>
+                <entry key="dataAccess.type" value="databaseRead"/>
+                <entry key="process.initialLastRunDate" value="2015-09-01T00:00:00.000-0800"/>
+                <entry key="process.lastRunOutputDirectory " value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.statusOutputDirectory" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.outputSuccess" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\contactsuccess.csv"/>
+                <entry key="process.outputError" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\contacterror.csv"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="fairProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>Contact job gets the fairs record updates from redshift and uploads them to salesforce using 'upsert'.</description>
+        <property name="name" value="fairProcess"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="false"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\fairSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://login.salesforce.com"/>
+                <entry key="sfdc.username" value="Put_Salesforce_Username_Here"/>
+                <!-- password below is generated using encrypt.bat in ../bin to encrypt: encrypt -e sfpwd  -->
+                <entry key="sfdc.password" value="SEE_README_NOTES_ON_ENCRYPTING_PW"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.useBulkApi " value="true"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.externalIdField" value="Fair_Ext_Id__c"/>
+                <entry key="sfdc.entity" value="Fair__c"/>
+                <entry key="process.operation" value="upsert"/>
+                <entry key="process.mappingFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\conf\fairMap.sdl"/>
+                <entry key="dataAccess.name" value="queryFair"/>
+                <entry key="dataAccess.type" value="databaseRead"/>
+                <entry key="process.initialLastRunDate" value="2015-09-01T00:00:00.000-0800"/>
+                <entry key="process.lastRunOutputDirectory " value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.statusOutputDirectory" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.outputSuccess" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\fairsuccess.csv"/>
+                <entry key="process.outputError" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\fairerror.csv"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="showProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>Show job gets the partner shows record updates from redshift and uploads them to salesforce using 'upsert'.</description>
+        <property name="name" value="showProcess"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="false"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\showSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://login.salesforce.com"/>
+                <entry key="sfdc.username" value="Put_Salesforce_Username_Here"/>
+                <!-- password below is generated using encrypt.bat in ../bin to encrypt: encrypt -e sfpwd  -->
+                <entry key="sfdc.password" value="SEE_README_NOTES_ON_ENCRYPTING_PW"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.useBulkApi " value="true"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.externalIdField" value="Partner_Show_Ext_Id__c"/>
+                <entry key="sfdc.entity" value="Show__c"/>
+                <entry key="process.operation" value="upsert"/>
+                <entry key="process.mappingFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\conf\showMap.sdl"/>
+                <entry key="dataAccess.name" value="queryPartnerShow"/>
+                <entry key="dataAccess.type" value="databaseRead"/>
+                <entry key="process.initialLastRunDate" value="2015-09-01T00:00:00.000-0800"/>
+                <entry key="process.lastRunOutputDirectory " value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.statusOutputDirectory" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.outputSuccess" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\showsuccess.csv"/>
+                <entry key="process.outputError" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\showerror.csv"/>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="upsertOpptyProcess"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>Show job gets the Partner Subscriptions record updates from redshift and uploads them to salesforce using 'upsert'.</description>
+        <property name="name" value="upsertOppty"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="false"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\showSoapTrace.log"/>
+                <entry key="sfdc.endpoint" value="https://login.salesforce.com"/>
+                <entry key="sfdc.username" value="Put_Salesforce_Username_Here"/>
+                <!-- password below is generated using encrypt.bat in ../bin to encrypt: encrypt -e sfpwd  -->
+                <entry key="sfdc.password" value="SEE_README_NOTES_ON_ENCRYPTING_PW"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.useBulkApi " value="true"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                <entry key="sfdc.externalIdField" value="Partner_Subscription_ID__c"/>
+                <entry key="sfdc.entity" value="Opportunity"/>
+                <entry key="process.operation" value="upsert"/>
+                <entry key="process.mappingFile" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\conf\opptyMap.sdl"/>
+                <entry key="dataAccess.name" value="queryPartnerSubscriptions"/>
+                <entry key="dataAccess.type" value="databaseRead"/>
+                <entry key="process.initialLastRunDate" value="2015-09-01T00:00:00.000-0800"/>
+                <entry key="process.lastRunOutputDirectory " value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.statusOutputDirectory" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\"/>
+                <entry key="process.outputSuccess" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\opptysuccess.csv"/>
+                <entry key="process.outputError" value="C:\dataloader\PUT_SALESFORCE_ACCOUNT_NAME_HERE\status\opptyerror.csv"/>
+            </map>
+        </property>
+    </bean>
+
+
+
+</beans>

@@ -1,0 +1,8 @@
+# Contact Mapping values for query from redshift and upsert to Salesforce (right)
+# RedshiftFieldName=SalesforceFieldName
+id=Partner_Contact_Ext_Id__c
+partner_id=Account\:Partner_Ext_Id__c
+partner_location_id=Location__r\:Partner_Location_Ext_Id__c
+name=LastName
+email=Email
+phone=Phone

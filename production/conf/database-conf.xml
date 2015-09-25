@@ -1,0 +1,221 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="dbDataSource"
+      class="org.apache.commons.dbcp.BasicDataSource"
+      destroy-method="close">
+    <property name="driverClassName" value="org.postgresql.Driver"/>
+    <property name="url" value="PUT_JDBC_JAR_URL_Here"/>
+    <property name="username" value="PutUserNameHere"/>
+    <property name="password" value="PutPWHere"/>
+</bean>
+<!-- partner table - account in sf -->
+<bean id="queryPartner"
+      class="com.salesforce.dataloader.dao.database.DatabaseConfig"
+      singleton="true">
+    <property name="sqlConfig" ref="queryPartnerSql"/>
+    <property name="dataSource" ref="dbDataSource"/>
+</bean>
+<bean id="queryPartnerSql"
+      class="com.salesforce.dataloader.dao.database.SqlConfig" singleton="true">
+    <property name="sqlString">
+        <value>
+            SELECT id,created_at,updated_at,slug,name,relative_size,contract_type,region,website,contract_type,_type,artworks_count,eligible_artworks_count,published_not_for_sale_artworks_count,admin_id,active,founding_partner,displayable_shows_count,partner_locations_count
+            FROM partners
+        </value>
+    </property>
+    <property name="columnNames">
+        <list>
+            <value>id</value>
+            <value>created_at</value>
+            <value>updated_at</value>
+            <value>slug</value>
+            <value>name</value>
+            <value>relative_size</value>
+            <value>contract_type</value>
+            <value>region</value>
+            <value>website</value>
+            <value>contract_type</value>
+            <value>_type</value>
+            <value>artworks_count</value>
+            <value>eligible_artworks_count</value>
+            <value>published_not_for_sale_artworks_count</value>
+            <value>admin_id</value>
+            <value>active</value>
+            <value>founding_partner</value>
+            <value>displayable_shows_count</value>
+            <value>partner_locations_count</value>
+        </list>
+    </property>
+</bean>
+
+<!-- partner_subscriptions table - account in sf -->
+<bean id="queryPartnerSubscriptions"
+      class="com.salesforce.dataloader.dao.database.DatabaseConfig"
+      singleton="true">
+    <property name="sqlConfig" ref="queryPartnerSubscriptionsSql"/>
+    <property name="dataSource" ref="dbDataSource"/>
+</bean>
+<bean id="queryPartnerSubscriptionsSql"
+      class="com.salesforce.dataloader.dao.database.SqlConfig" singleton="true">
+    <property name="sqlString">
+        <value>
+            SELECT id,start_at,end_at,total_value,virtual_mrr,is_last_subscription,active_subscription_number,failed_charges,partner_relative_size,active,plan_name,duration,payment_frequency,ended_early,months_paid_up_front,total_charges,last_subscription_mrr,partner_slug
+            FROM partner_subscriptions
+        </value>
+    </property>
+    <property name="columnNames">
+        <list>
+            <value>id</value>
+            <value>start_at</value>
+            <value>end_at</value>
+            <value>total_value</value>
+            <value>virtual_mrr</value>
+            <value>is_last_subscription</value>
+            <value>active_subscription_number</value>
+            <value>failed_charges</value>
+            <value>partner_relative_size</value>
+            <value>active</value>
+            <value>plan_name</value>
+            <value>duration</value>
+            <value>payment_frequency</value>
+            <value>ended_early</value>
+            <value>months_paid_up_front</value>
+            <value>total_charges</value>
+            <value>last_subscription_mrr</value>
+            <value>partner_slug</value>
+        </list>
+    </property>
+</bean>
+
+<!-- partner_locations table - locations__c in sf -->
+<bean id="queryPartnerLocation"
+      class="com.salesforce.dataloader.dao.database.DatabaseConfig"
+      singleton="true">
+    <property name="sqlConfig" ref="queryPartnerLocationSql"/>
+    <property name="dataSource" ref="dbDataSource"/>
+</bean>
+<bean id="queryPartnerLocationSql"
+      class="com.salesforce.dataloader.dao.database.SqlConfig" singleton="true">
+    <property name="sqlString">
+        <value>
+            SELECT id,partner_id,name,address,address_2,city,state,postal_code,country,timezone,phone,email,fax,longitude,latitude
+            FROM partner_locations
+        </value>
+    </property>
+    <property name="columnNames">
+        <list>
+            <value>id</value>
+            <value>partner_id</value>
+            <value>name</value>
+            <value>address</value>
+            <value>address_2</value>
+            <value>city</value>
+            <value>state</value>
+            <value>postal_code</value>
+            <value>country</value>
+            <value>timezone</value>
+            <value>phone</value>
+            <value>email</value>
+            <value>fax</value>
+            <value>longitude</value>
+            <value>latitude</value>
+        </list>
+    </property>
+</bean>
+
+<!-- partner_contacts table - contact in sf -->
+<bean id="queryPartnerContact"
+      class="com.salesforce.dataloader.dao.database.DatabaseConfig"
+      singleton="true">
+    <property name="sqlConfig" ref="queryPartnerContactSql"/>
+    <property name="dataSource" ref="dbDataSource"/>
+</bean>
+<bean id="queryPartnerContactSql"
+      class="com.salesforce.dataloader.dao.database.SqlConfig" singleton="true">
+    <property name="sqlString">
+        <value>
+            SELECT id,partner_id,partner_location_id,name,email,phone
+            FROM partner_contacts
+        </value>
+    </property>
+    <property name="columnNames">
+        <list>
+            <value>id</value>
+            <value>partner_id</value>
+            <value>partner_location_id</value>
+            <value>name</value>
+            <value>email</value>
+            <value>phone</value>
+        </list>
+    </property>
+</bean>
+
+
+<!-- fair table - fair__c in sf -->
+<bean id="queryFair"
+      class="com.salesforce.dataloader.dao.database.DatabaseConfig"
+      singleton="true">
+    <property name="sqlConfig" ref="queryFairSql"/>
+    <property name="dataSource" ref="dbDataSource"/>
+</bean>
+<bean id="queryFairSql"
+      class="com.salesforce.dataloader.dao.database.SqlConfig" singleton="true">
+    <property name="sqlString">
+        <value>
+            SELECT id,name,start_at,end_at,artworks_count,partners_count,artists_count,partner_shows_count,published
+            FROM fairs
+        </value>
+    </property>
+    <property name="columnNames">
+        <list>
+            <value>id</value>
+            <value>name</value>
+            <value>start_at</value>
+            <value>end_at</value>
+            <value>artworks_count</value>
+            <value>partners_count</value>
+            <value>artists_count</value>
+            <value>partner_shows_count</value>
+            <value>published</value>
+        </list>
+    </property>
+</bean>
+
+<!-- partner_shows table - show__c in sf -->
+<bean id="queryPartnerShow"
+      class="com.salesforce.dataloader.dao.database.DatabaseConfig"
+      singleton="true">
+    <property name="sqlConfig" ref="queryPartnerShowSql"/>
+    <property name="dataSource" ref="dbDataSource"/>
+</bean>
+<bean id="queryPartnerShowSql"
+      class="com.salesforce.dataloader.dao.database.SqlConfig" singleton="true">
+    <property name="sqlString">
+        <value>
+            SELECT id,slug,name,description,featured,eligible_artworks_count,artworks_count,images_count,displayable,partner_id,fair_id,lat,lon,start_at,end_at
+            FROM partner_shows
+        </value>
+    </property>
+    <property name="columnNames">
+        <list>
+            <value>id</value>
+            <value>slug</value>
+            <value>name</value>
+            <value>description</value>
+            <value>featured</value>
+            <value>eligible_artworks_count</value>
+            <value>artworks_count</value>
+            <value>images_count</value>
+            <value>displayable</value>
+            <value>partner_id</value>
+            <value>fair_id</value>
+            <value>lat</value>
+            <value>lon</value>
+            <value>start_at</value>
+            <value>end_at</value>
+        </list>
+    </property>
+</bean>
+
+
+</beans>

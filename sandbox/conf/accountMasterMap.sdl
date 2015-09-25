@@ -1,0 +1,20 @@
+# Account master Mapping values for query from redshift and upsert to Salesforce (right)
+# RedshiftFieldName=SalesforceFieldName
+# This mapping includes created date, created dates can only be inserted, not updated
+id=Partner_Ext_Id__c
+# created_at=CreatedDate
+# updated_at=LastModifiedDate
+# name=Name
+relative_size=Relative_Size__c
+contract_type=Subscription_Type__c
+_type=Partner_Type__c
+slug=Partner_Slug__c
+artworks_count=Artworks_Count__c
+eligible_artworks_count=Published_Artworks_Count__c
+published_not_for_sale_artworks_count=Published_Not_For_Sale_Artworks_Count__c
+admin_id=partner_admin__c
+website=Admin_Website__c
+active=Active__c
+founding_partner=Founding_Gallery_Partner__c
+displayable_shows_count=Displayable_Shows_Count__c
+partner_locations_count=Partner_Locations_Count__c

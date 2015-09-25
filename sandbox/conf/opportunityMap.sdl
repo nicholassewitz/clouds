@@ -1,0 +1,20 @@
+# Opportunity master Mapping values for query from redshift and upsert to Salesforce (right)
+# RedshiftFieldName=SalesforceFieldName
+id=Partner_Subscription_ID__c
+start_at=Date_of_Subscription_Start__c
+end_at=Date_of_Subscription_End__c
+total_value=Total_Value__c
+virtual_mrr=Virtual_MRR__c
+is_last_subscription=Is_Last_Subscription__c
+active_subscription_number=Active_Subscription_Number__c
+failed_charges=Number_of_Failed_Charges__c
+partner_relative_size=Relative_Size__c
+active=Is_Active_Subscription__c
+plan_name=Plan_Type__c
+duration=Duration__c
+payment_frequency=Payment_Frequency__C
+ended_early=Ended_Early__c
+months_paid_up_front=Months_Paid_Up_Front__c
+total_charges=Total_Charges__c
+last_subscription_mrr=Last_Subscriptions_MRR__c
+partner_slug=Partner_Slug__c

@@ -1,0 +1,10 @@
+# Fair Mapping values for query from redshift and upsert to Salesforce (right)
+id=Fair_Ext_Id__c
+name=Name
+start_at=Start_At__c
+end_at=End_At__c
+artworks_count=Number_of_Artworks__c
+partners_count=Number_Of_Partners__c
+artists_count=Number_of_Artists__c
+partner_shows_count=Partner_Shows_Count__c
+published=Is_Was_Fair_Published__c
